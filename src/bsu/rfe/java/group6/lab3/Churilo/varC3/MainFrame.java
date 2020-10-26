@@ -123,7 +123,109 @@ public class MainFrame extends JFrame {
         };
         aboutProgramMenuItem = helpMenu.add(aboutProgramAction);
 
+        //X range
+        JLabel labelForFrom = new JLabel("X изменяется на интервале от:");
+        textFieldFrom = new JTextField("0.0", 10);
+        textFieldFrom.setMaximumSize(textFieldFrom.getPreferredSize());
 
+        JLabel labelForTo = new JLabel("до:");
+        textFieldTo = new JTextField("1.0", 10);
+        textFieldTo.setMaximumSize(textFieldTo.getPreferredSize());
+
+        JLabel labelForStep = new JLabel("с шагом:");
+        textFieldStep = new JTextField("0.1", 10);
+        textFieldStep.setMaximumSize(textFieldStep.getPreferredSize());
+
+        Box hBoxRange = Box.createHorizontalBox();
+        hBoxRange.setBorder(BorderFactory.createBevelBorder(1));
+        hBoxRange.add(Box.createHorizontalGlue());
+        hBoxRange.add(labelForFrom);
+        hBoxRange.add(Box.createHorizontalStrut(10));
+        hBoxRange.add(textFieldFrom);
+        hBoxRange.add(Box.createHorizontalStrut(20));
+        hBoxRange.add(labelForTo);
+        hBoxRange.add(Box.createHorizontalStrut(10));
+        hBoxRange.add(textFieldTo);
+        hBoxRange.add(Box.createHorizontalStrut(20));
+        hBoxRange.add(labelForStep);
+        hBoxRange.add(Box.createHorizontalStrut(10));
+        hBoxRange.add(textFieldStep);
+        hBoxRange.add(Box.createHorizontalGlue());
+
+        hBoxRange.setPreferredSize(new Dimension((new Double(hBoxRange.getMaximumSize().getWidth()).intValue()), new Double(hBoxRange.getMinimumSize().getHeight()).intValue()*2));
+        getContentPane().add(hBoxRange, BorderLayout.NORTH);
+
+        //Button "Вчислить"
+        JButton buttonCalc = new JButton("Вычислить");
+        buttonCalc.addActionListener(new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    renderer.setNeedle(null);
+                    renderer.setSelectPalindromes(false);
+
+                    Double from = Double.parseDouble(textFieldFrom.getText());
+                    Double to = Double.parseDouble(textFieldTo.getText());
+                    Double step = Double.parseDouble(textFieldStep.getText());
+                    data = new GornerTableModel(from, to, step, MainFrame.this.coefficients);
+
+                    JTable table = new JTable(data);
+                    table.setDefaultRenderer(Double.class, renderer);
+                    table.setRowHeight(30);
+                    hBoxResult.removeAll();
+                    hBoxResult.add(new JScrollPane(table));
+                    getContentPane().validate();
+
+                    saveToTextMenuItem.setEnabled(true);
+                    saveToGraphicsMenuItem.setEnabled(true);
+                    saveToCSVMenuItem.setEnabled(true);
+
+                    searchValueMenuItem.setEnabled(true);
+                    showPalindromesMenuItem.setEnabled(true);
+                }
+                catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(MainFrame.this, "Ошибка в формате записи числа с плавающей точкой", "Ошибочный формат числа", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+        //Button "Очистить"
+        JButton buttonClear = new JButton("Очистить");
+        buttonClear.addActionListener(new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                renderer.setNeedle(null);
+                renderer.setSelectPalindromes(false);
+
+                textFieldFrom.setText("0.0");
+                textFieldTo.setText("1.0");
+                textFieldStep.setText("0.1");
+
+                hBoxResult.removeAll();
+                hBoxResult.add(new JPanel());
+                getContentPane().repaint();
+
+                saveToTextMenuItem.setEnabled(false);
+                saveToGraphicsMenuItem.setEnabled(false);
+                saveToCSVMenuItem.setEnabled(false);
+
+                searchValueMenuItem.setEnabled(false);
+                showPalindromesMenuItem.setEnabled(false);
+            }
+        });
+
+        //Buttons
+        Box hBoxButtons = Box.createHorizontalBox();
+        hBoxButtons.setBorder(BorderFactory.createBevelBorder(1));
+        hBoxButtons.add(Box.createHorizontalGlue());
+        hBoxButtons.add(buttonCalc);
+        hBoxButtons.add(Box.createHorizontalStrut(30));
+        hBoxButtons.add(buttonClear);
+        hBoxButtons.add(Box.createHorizontalGlue());
+        hBoxButtons.setPreferredSize(new Dimension(new Double(hBoxButtons.getMaximumSize().getWidth()).intValue(), new Double(hBoxButtons.getMinimumSize().getHeight()).intValue()*2));
+        getContentPane().add(hBoxButtons, BorderLayout.SOUTH);
+
+        hBoxResult = Box.createHorizontalBox();
+        hBoxResult.add(new JPanel());
+        getContentPane().add(hBoxResult, BorderLayout.CENTER);
     }
 
     public static void main(String args[]){
