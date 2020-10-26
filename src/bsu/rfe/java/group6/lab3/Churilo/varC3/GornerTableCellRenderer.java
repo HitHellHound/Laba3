@@ -14,7 +14,8 @@ public class GornerTableCellRenderer implements TableCellRenderer {
 
     private String needle = null;
 
-    private DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance();
+    private DecimalFormat formatter = (DecimalFormat)NumberFormat.getInstance();
+    private DecimalFormat dot = (DecimalFormat)NumberFormat.getInstance();
 
     public GornerTableCellRenderer() {
         formatter.setMaximumFractionDigits(5);
@@ -22,6 +23,11 @@ public class GornerTableCellRenderer implements TableCellRenderer {
         DecimalFormatSymbols dottedDouble = formatter.getDecimalFormatSymbols();
         dottedDouble.setDecimalSeparator('.');
         formatter.setDecimalFormatSymbols(dottedDouble);
+
+        DecimalFormatSymbols dotted = dot.getDecimalFormatSymbols();
+        dotted.setDecimalSeparator('.');
+        dot.setDecimalFormatSymbols(dotted);
+
         flag.setSelected(true);
     }
 
@@ -30,7 +36,7 @@ public class GornerTableCellRenderer implements TableCellRenderer {
         if (col != 3)
             formattedDouble = formatter.format(value);
         else
-            formattedDouble = value.toString();
+            formattedDouble = dot.format(value);
         label.setText(formattedDouble);
 
         boolean palindrome = true;
