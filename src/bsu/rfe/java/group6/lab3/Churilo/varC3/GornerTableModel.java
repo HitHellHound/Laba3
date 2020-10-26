@@ -15,15 +15,70 @@ public class GornerTableModel extends AbstractTableModel {
         this.step = step;
     }
 
+    public Double getFrom(){
+        return from;
+    }
+
+    public Double getTo(){
+        return to;
+    }
+
+    public Double getStep(){
+        return step;
+    }
+
     public int getColumnCount(){
-        return 0;
+        return 4;
     }
 
     public int getRowCount(){
-        return 0;
+        return new Double(Math.ceil((to - from) / step)).intValue() + 1;
     }
 
     public Object getValueAt(int row, int col){
-        return null;
+        double d_x = from + step * row;
+        Double d_result = 0.0;
+
+        float f_x = from.floatValue() + step.floatValue() * row;
+        Float f_result = 0.0f;
+
+        if (col == 0){
+            return d_x;
+        } else if (col == 1){
+            double x = d_x;
+            d_result += coefficients[coefficients.length - 1];
+            for (int i = coefficients.length - 2; i >= 0; i--){
+                d_result += coefficients[i] * x;
+                x *= d_x;
+            }
+            return d_result;
+        } else if (col == 2){
+            float x = f_x;
+            f_result += coefficients[coefficients.length - 1].floatValue();
+            for (int i = coefficients.length - 2; i >= 0; i--){
+                f_result += coefficients[i].floatValue() * x;
+                x *= f_x;
+            }
+            return f_result;
+        } else {
+            return d_result - f_result;
+        }
+    }
+
+    public String getColumnName(int col){
+        switch (col){
+            case 0:
+                return "Значение X";
+            case 1:
+                return "Значение многочлена в Double";
+            case 2:
+                return "Значение многочлена в Float";
+            default:
+                return "Разница Double и Float";
+        }
+    }
+
+    public Class<?> getColumnClass(int col){
+        return Double.class;
     }
 }
