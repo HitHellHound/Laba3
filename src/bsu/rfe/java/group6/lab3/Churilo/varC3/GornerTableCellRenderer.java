@@ -13,6 +13,7 @@ public class GornerTableCellRenderer implements TableCellRenderer {
     private JCheckBox flag = new JCheckBox();
 
     private String needle = null;
+    private Boolean selectPalindrome = false;
 
     private DecimalFormat formatter = (DecimalFormat)NumberFormat.getInstance();
     private DecimalFormat dot = (DecimalFormat)NumberFormat.getInstance();
@@ -38,26 +39,27 @@ public class GornerTableCellRenderer implements TableCellRenderer {
         else
             formattedDouble = dot.format(value);
         label.setText(formattedDouble);
+        panel.setBackground(Color.WHITE);
 
-        boolean palindrome = true;
-        int b = 0;
-        int e = formattedDouble.length() - 1;
-        while (b < e){
-            if (formattedDouble.charAt(b) == '.')
+        if (selectPalindrome) {
+            boolean palindrome = true;
+            int b = 0;
+            int e = formattedDouble.length() - 1;
+            while (b < e) {
+                if (formattedDouble.charAt(b) == '.')
+                    b++;
+                if (formattedDouble.charAt(e) == '.')
+                    e--;
+                if (formattedDouble.charAt(b) != formattedDouble.charAt(e)) {
+                    palindrome = false;
+                    break;
+                }
                 b++;
-            if (formattedDouble.charAt(e) == '.')
                 e--;
-            if (formattedDouble.charAt(b) != formattedDouble.charAt(e)){
-                palindrome = false;
-                break;
             }
-            b++;
-            e--;
+            if (palindrome)
+                panel.setBackground(Color.MAGENTA);
         }
-        if (palindrome)
-            panel.setBackground(Color.MAGENTA);
-        else
-            panel.setBackground(Color.WHITE);
 
         panel.removeAll();
         if ((col == 1 || col == 2) && needle != null && needle.equals(formattedDouble)){

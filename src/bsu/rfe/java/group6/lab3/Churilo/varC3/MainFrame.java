@@ -2,6 +2,8 @@ package bsu.rfe.java.group6.lab3.Churilo.varC3;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
 
 public class MainFrame extends JFrame {
     private static final int WIDTH = 1000;
@@ -34,6 +36,58 @@ public class MainFrame extends JFrame {
         setSize(WIDTH, HEIGHT);
         Toolkit kit = Toolkit.getDefaultToolkit();
         setLocation((kit.getScreenSize().width - WIDTH) / 2, (kit.getScreenSize().height - HEIGHT) / 2);
+
+        //Menu bar
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+        JMenu fileMenu = new JMenu("Файл");
+        menuBar.add(fileMenu);
+        JMenu tableMenu = new JMenu("Таблица");
+        menuBar.add(tableMenu);
+        JMenu helpMenu = new JMenu("Справка");
+        menuBar.add(helpMenu);
+
+        Action saveToTextAction = new AbstractAction("Сохранить в текстовый файл") {
+            public void actionPerformed(ActionEvent e) {
+                if (fileChooser == null){
+                    fileChooser = new JFileChooser();
+                    fileChooser.setCurrentDirectory(new File("."));
+                }
+                if (fileChooser.showSaveDialog(MainFrame.this) == JFileChooser.APPROVE_OPTION){
+                    saveToTextFile(fileChooser.getSelectedFile());
+                }
+            }
+        };
+        saveToTextMenuItem = fileMenu.add(saveToTextAction);
+        saveToTextMenuItem.setEnabled(false);
+
+        Action saveToGraphicsAction = new AbstractAction("Сохранить в данные для построения графика") {
+            public void actionPerformed(ActionEvent e) {
+                if (fileChooser == null){
+                    fileChooser = new JFileChooser();
+                    fileChooser.setCurrentDirectory(new File("."));
+                }
+                if (fileChooser.showSaveDialog(MainFrame.this) == JFileChooser.APPROVE_OPTION){
+                    saveToGraphicsFile(fileChooser.getSelectedFile());
+                }
+            }
+        };
+        saveToGraphicsMenuItem = fileMenu.add(saveToGraphicsAction);
+        saveToGraphicsMenuItem.setEnabled(false);
+
+        Action saveToCSVAction = new AbstractAction("Сохранить в CSV файл") {
+            public void actionPerformed(ActionEvent e) {
+                if (fileChooser == null){
+                    fileChooser = new JFileChooser();
+                    fileChooser.setCurrentDirectory(new File("."));
+                }
+                if (fileChooser.showSaveDialog(MainFrame.this) == JFileChooser.APPROVE_OPTION){
+                    saveToCSVFile(fileChooser.getSelectedFile());
+                }
+            }
+        };
+        saveToCSVMenuItem = fileMenu.add(saveToCSVAction);
+        saveToCSVMenuItem.setEnabled(false);
     }
 
     public static void main(String args[]){
@@ -50,5 +104,17 @@ public class MainFrame extends JFrame {
         MainFrame frame = new MainFrame(coefficients);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    }
+
+    protected void saveToTextFile(File selectedFile){
+
+    }
+
+    protected void saveToGraphicsFile(File selectedFile){
+
+    }
+
+    protected void saveToCSVFile(File selectedFile){
+
     }
 }
