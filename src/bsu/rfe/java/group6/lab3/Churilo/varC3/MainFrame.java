@@ -259,7 +259,7 @@ public class MainFrame extends JFrame {
         try{
             DataOutputStream out = new DataOutputStream(new FileOutputStream(selectedFile));
 
-            for (int i = 0; i<data.getRowCount(); i++) {
+            for (int i = 0; i < data.getRowCount(); i++) {
                 out.writeDouble((Double)data.getValueAt(i,0));
                 out.writeDouble((Double)data.getValueAt(i,1));
                 out.writeFloat((Float)data.getValueAt(i, 2));
@@ -273,7 +273,15 @@ public class MainFrame extends JFrame {
     }
 
     protected void saveToCSVFile(File selectedFile){
-
+        try(FileWriter writer = new FileWriter(selectedFile)){
+            for (int i = 0; i < data.getRowCount(); i++){
+                writer.append("" + data.getValueAt(i, 0) + ',' + data.getValueAt(i, 1) + ',' + data.getValueAt(i, 2) + ',' + data.getValueAt(i, 3));
+                writer.append(System.lineSeparator());
+            }
+            writer.flush();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public static void main(String args[]){
