@@ -3,9 +3,69 @@ package bsu.rfe.java.group6.lab3.Churilo.varC3;
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 
 public class GornerTableCellRenderer implements TableCellRenderer {
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-        return null;
+    private JPanel panel = new JPanel();
+    private JLabel label = new JLabel();
+    private JCheckBox flag = new JCheckBox();
+
+    private String needle = null;
+
+    private DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance();
+
+    public GornerTableCellRenderer() {
+        formatter.setMaximumFractionDigits(5);
+        formatter.setGroupingUsed(false);
+        DecimalFormatSymbols dottedDouble = formatter.getDecimalFormatSymbols();
+        dottedDouble.setDecimalSeparator('.');
+        formatter.setDecimalFormatSymbols(dottedDouble);
+        flag.setSelected(true);
+    }
+
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+        String formattedDouble;
+        if (col != 3)
+            formattedDouble = formatter.format(value);
+        else
+            formattedDouble = value.toString();
+        label.setText(formattedDouble);
+
+        boolean palindrome = true;
+        int b = 0;
+        int e = formattedDouble.length() - 1;
+        while (b < e){
+            if (formattedDouble.charAt(b) == '.')
+                b++;
+            if (formattedDouble.charAt(e) == '.')
+                e--;
+            if (formattedDouble.charAt(b) != formattedDouble.charAt(e)){
+                palindrome = false;
+                break;
+            }
+            b++;
+            e--;
+        }
+        if (palindrome)
+            panel.setBackground(Color.MAGENTA);
+        else
+            panel.setBackground(Color.WHITE);
+
+        panel.removeAll();
+        if ((col == 1 || col == 2) && needle != null && needle.equals(formattedDouble)){
+            panel.add(flag);
+            panel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        }
+        else {
+            panel.add(label);
+            panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        }
+        return panel;
+    }
+
+    public void setNeedle(String needle){
+        this.needle = needle;
     }
 }
