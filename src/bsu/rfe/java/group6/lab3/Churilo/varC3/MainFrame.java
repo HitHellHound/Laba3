@@ -3,11 +3,14 @@ package bsu.rfe.java.group6.lab3.Churilo.varC3;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class MainFrame extends JFrame {
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 500;
+
+    private Icon imgAuthor;
 
     private Double[] coefficients;
 
@@ -36,6 +39,8 @@ public class MainFrame extends JFrame {
         setSize(WIDTH, HEIGHT);
         Toolkit kit = Toolkit.getDefaultToolkit();
         setLocation((kit.getScreenSize().width - WIDTH) / 2, (kit.getScreenSize().height - HEIGHT) / 2);
+
+        imgAuthor = new ImageIcon("Pictures/Author.png");
 
         //Menu bar
         JMenuBar menuBar = new JMenuBar();
@@ -109,6 +114,16 @@ public class MainFrame extends JFrame {
         };
         showPalindromesMenuItem = tableMenu.add(showPalindromesAction);
         showPalindromesMenuItem.setEnabled(false);
+
+        //Help menu
+        Action aboutProgramAction = new AbstractAction("О программе") {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(MainFrame.this, "Автор программы студент второго курса 6 группы Чурило Игнат", "О программе", JOptionPane.INFORMATION_MESSAGE, imgAuthor);
+            }
+        };
+        aboutProgramMenuItem = helpMenu.add(aboutProgramAction);
+
+
     }
 
     public static void main(String args[]){
