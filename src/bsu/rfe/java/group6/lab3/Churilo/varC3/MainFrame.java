@@ -17,7 +17,7 @@ public class MainFrame extends JFrame {
     private JMenuItem saveToGraphicsMenuItem;
     private JMenuItem saveToCSVMenuItem;
     private JMenuItem searchValueMenuItem;
-    private JMenuItem searchPalindromesMenuItem;
+    private JMenuItem showPalindromesMenuItem;
     private JMenuItem aboutProgramMenuItem;
 
     private JTextField textFieldFrom;
@@ -47,6 +47,7 @@ public class MainFrame extends JFrame {
         JMenu helpMenu = new JMenu("Справка");
         menuBar.add(helpMenu);
 
+        //File menu
         Action saveToTextAction = new AbstractAction("Сохранить в текстовый файл") {
             public void actionPerformed(ActionEvent e) {
                 if (fileChooser == null){
@@ -88,6 +89,26 @@ public class MainFrame extends JFrame {
         };
         saveToCSVMenuItem = fileMenu.add(saveToCSVAction);
         saveToCSVMenuItem.setEnabled(false);
+
+        //Table menu
+        Action searchValueAction = new AbstractAction("Найти значение многочлена") {
+            public void actionPerformed(ActionEvent e) {
+                String value = JOptionPane.showInputDialog(MainFrame.this, "Введите значение для поиска", "Поиск значения", JOptionPane.QUESTION_MESSAGE);
+                renderer.setNeedle(value);
+                getContentPane().repaint();
+            }
+        };
+        searchValueMenuItem = tableMenu.add(searchValueAction);
+        searchValueMenuItem.setEnabled(false);
+
+        Action showPalindromesAction = new AbstractAction("Показать палиндромы") {
+            public void actionPerformed(ActionEvent e) {
+                renderer.setSelectPalindromes(true);
+                getContentPane().repaint();
+            }
+        };
+        showPalindromesMenuItem = tableMenu.add(showPalindromesAction);
+        showPalindromesMenuItem.setEnabled(false);
     }
 
     public static void main(String args[]){

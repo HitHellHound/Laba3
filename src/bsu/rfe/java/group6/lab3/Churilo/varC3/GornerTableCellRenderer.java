@@ -13,7 +13,7 @@ public class GornerTableCellRenderer implements TableCellRenderer {
     private JCheckBox flag = new JCheckBox();
 
     private String needle = null;
-    private Boolean selectPalindrome = false;
+    private Boolean selectPalindromes = false;
 
     private DecimalFormat formatter = (DecimalFormat)NumberFormat.getInstance();
     private DecimalFormat dot = (DecimalFormat)NumberFormat.getInstance();
@@ -41,7 +41,7 @@ public class GornerTableCellRenderer implements TableCellRenderer {
         label.setText(formattedDouble);
         panel.setBackground(Color.WHITE);
 
-        if (selectPalindrome) {
+        if (selectPalindromes) {
             boolean palindrome = true;
             int b = 0;
             int e = formattedDouble.length() - 1;
@@ -75,5 +75,9 @@ public class GornerTableCellRenderer implements TableCellRenderer {
 
     public void setNeedle(String needle){
         this.needle = needle;
+    }
+
+    public void setSelectPalindromes(Boolean selected){
+        this.selectPalindromes = selected;
     }
 }
