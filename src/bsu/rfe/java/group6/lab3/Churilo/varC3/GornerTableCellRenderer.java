@@ -25,6 +25,8 @@ public class GornerTableCellRenderer implements TableCellRenderer {
         dottedDouble.setDecimalSeparator('.');
         formatter.setDecimalFormatSymbols(dottedDouble);
 
+        dot.setMinimumFractionDigits(18);
+        formatter.setGroupingUsed(false);
         DecimalFormatSymbols dotted = dot.getDecimalFormatSymbols();
         dotted.setDecimalSeparator('.');
         dot.setDecimalFormatSymbols(dotted);

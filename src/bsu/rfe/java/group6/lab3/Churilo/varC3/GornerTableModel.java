@@ -42,26 +42,28 @@ public class GornerTableModel extends AbstractTableModel {
         float f_x = from.floatValue() + step.floatValue() * row;
         Float f_result = 0.0f;
 
+        double x = d_x;
+        d_result += coefficients[coefficients.length - 1];
+        for (int i = coefficients.length - 2; i >= 0; i--){
+            d_result += coefficients[i] * x;
+            x *= d_x;
+        }
+
+        float xf = f_x;
+        f_result += coefficients[coefficients.length - 1].floatValue();
+        for (int i = coefficients.length - 2; i >= 0; i--){
+            f_result += coefficients[i].floatValue() * xf;
+            xf *= f_x;
+        }
+
         if (col == 0){
             return d_x;
         } else if (col == 1){
-            double x = d_x;
-            d_result += coefficients[coefficients.length - 1];
-            for (int i = coefficients.length - 2; i >= 0; i--){
-                d_result += coefficients[i] * x;
-                x *= d_x;
-            }
             return d_result;
         } else if (col == 2){
-            float x = f_x;
-            f_result += coefficients[coefficients.length - 1].floatValue();
-            for (int i = coefficients.length - 2; i >= 0; i--){
-                f_result += coefficients[i].floatValue() * x;
-                x *= f_x;
-            }
             return f_result;
         } else {
-            return d_result - f_result;
+            return Math.abs(d_result - f_result);
         }
     }
 
@@ -79,6 +81,8 @@ public class GornerTableModel extends AbstractTableModel {
     }
 
     public Class<?> getColumnClass(int col){
+        if (col == 2)
+            return Float.class;
         return Double.class;
     }
 }

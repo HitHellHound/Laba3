@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.io.*;
 
 public class MainFrame extends JFrame {
     private static final int WIDTH = 1000;
@@ -170,6 +170,7 @@ public class MainFrame extends JFrame {
 
                     JTable table = new JTable(data);
                     table.setDefaultRenderer(Double.class, renderer);
+                    table.setDefaultRenderer(Float.class, renderer);
                     table.setRowHeight(30);
                     hBoxResult.removeAll();
                     hBoxResult.add(new JScrollPane(table));
@@ -228,7 +229,59 @@ public class MainFrame extends JFrame {
         getContentPane().add(hBoxResult, BorderLayout.CENTER);
     }
 
+    protected void saveToTextFile(File selectedFile){
+        try{
+            PrintStream out = new PrintStream(selectedFile);
+
+            out.println("Результаты табулирования многочлена по схеме Горнера");
+
+            out.print("Многочлен: ");
+            for (int i=0; i<coefficients.length; i++) {
+                out.print(coefficients[i] + "*X^" +
+                        (coefficients.length-i-1));
+                if (i!=coefficients.length-1)
+                    out.print(" + ");
+            }
+            out.println("");
+
+            out.println("Интервал от " + data.getFrom() + " до " + data.getTo() + " с шагом " + data.getStep());
+
+            out.println("====================================================");
+            for (int i = 0; i < data.getRowCount(); i++){
+                out.println("Значение в точке " + data.getValueAt(i, 0) + " для Double равно " + data.getValueAt(i, 1) + ", для Float - " + data.getValueAt(i, 2) + ". Разница между значениями Double и Float равна " + data.getValueAt(i, 3));
+            }
+
+            out.close();
+        } catch (FileNotFoundException e){ }
+    }
+
+    protected void saveToGraphicsFile(File selectedFile){
+        try{
+            DataOutputStream out = new DataOutputStream(new FileOutputStream(selectedFile));
+
+            for (int i = 0; i<data.getRowCount(); i++) {
+                out.writeDouble((Double)data.getValueAt(i,0));
+                out.writeDouble((Double)data.getValueAt(i,1));
+                out.writeFloat((Float)data.getValueAt(i, 2));
+                out.writeDouble((Double)data.getValueAt(i, 3));
+            }
+
+            out.close();
+        } catch (Exception e){
+
+        }
+    }
+
+    protected void saveToCSVFile(File selectedFile){
+
+    }
+
     public static void main(String args[]){
+        if (args.length == 0){
+            System.out.println("Невозможно табулировать многочлен, для которого не задано ни одного коэффициента!");
+            System.exit(-1);
+        }
+
         Double[] coefficients = new Double[args.length];
         int i = 0;
         try{
@@ -239,20 +292,9 @@ public class MainFrame extends JFrame {
             System.out.println(("Ошибка преобразования строки '" + args[i] + "' в число типа Double"));
             System.exit(-2);
         }
+
         MainFrame frame = new MainFrame(coefficients);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-    }
-
-    protected void saveToTextFile(File selectedFile){
-
-    }
-
-    protected void saveToGraphicsFile(File selectedFile){
-
-    }
-
-    protected void saveToCSVFile(File selectedFile){
-
     }
 }
