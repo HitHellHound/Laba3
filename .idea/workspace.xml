@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="96b41873-1b0b-4dfe-85ee-6cd2b6decb5e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laba3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pictures/Author.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bsu/rfe/java/group6/lab3/Churilo/varC3/GornerTableCellRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bsu/rfe/java/group6/lab3/Churilo/varC3/GornerTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bsu/rfe/java/group6/lab3/Churilo/varC3/MainFrame.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jNUWFPuNpMSrcOhApFVv3Bliie" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MainFrame" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bsu.rfe.java.group6.lab3.Churilo.varC3.MainFrame" />
+      <module name="Laba3" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;1&quot; &quot;0&quot;" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96b41873-1b0b-4dfe-85ee-6cd2b6decb5e" name="Default Changelist" comment="" />
+      <created>1603644074658</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603644074658</updated>
+      <workItem from="1603644075752" duration="5210000" />
+      <workItem from="1603694148087" duration="21302000" />
+      <workItem from="1603730303302" duration="254000" />
+      <workItem from="1603991609472" duration="611000" />
+      <workItem from="1604392921948" duration="112000" />
+      <workItem from="1604393091949" duration="59000" />
+      <workItem from="1604427383042" duration="715000" />
+      <workItem from="1605643951603" duration="724000" />
+      <workItem from="1606131688305" duration="90000" />
+      <workItem from="1608212341275" duration="1011000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="174" width="1092" height="716" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603715649346">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" width="1092" height="716" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603715649346" />
+    <state x="689" y="321" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1603644395401">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="321" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603644395401" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1606131778814">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606131778814" />
+    <state width="900" height="186" key="GridCell.Tab.0.bottom" timestamp="1605650433835">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="186" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605650433835" />
+    <state width="900" height="186" key="GridCell.Tab.0.center" timestamp="1605650433835">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="186" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605650433835" />
+    <state width="900" height="186" key="GridCell.Tab.0.left" timestamp="1605650433835">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="186" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605650433835" />
+    <state width="900" height="186" key="GridCell.Tab.0.right" timestamp="1605650433835">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="186" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605650433835" />
+    <state width="900" height="336" key="GridCell.Tab.1.bottom" timestamp="1603719893781">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="336" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603719893781" />
+    <state width="900" height="336" key="GridCell.Tab.1.center" timestamp="1603719893781">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="336" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603719893781" />
+    <state width="900" height="336" key="GridCell.Tab.1.left" timestamp="1603719893781">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="336" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603719893781" />
+    <state width="900" height="336" key="GridCell.Tab.1.right" timestamp="1603719893781">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="900" height="336" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603719893781" />
+    <state x="0" y="139" key="new project wizard" timestamp="1604393046251">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="139" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1604393046251" />
+    <state x="136" y="235" key="run.anything.popup" timestamp="1603714633652">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="136" y="235" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603714633652" />
+    <state x="143" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1603645562271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="143" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603645562271" />
+  </component>
+</project>
